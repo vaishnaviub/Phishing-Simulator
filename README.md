@@ -36,8 +36,6 @@ A realistic phishing simulation tool built with Flask and MySQL, designed to tes
 ---
 
 
----
-
 ## ⚙️ Setup Instructions
 
 ### 🔧 Prerequisites
