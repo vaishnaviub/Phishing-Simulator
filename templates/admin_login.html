@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Login</title>
+ <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style1.css') }}">
+</head>
+<body class="admin">
+
+  <div class="admin-header">Phishing Simulator</div>
+
+  <div class="login-card">
+    <h2>Admin Login</h2>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="msg">{{ messages[0] }}</div>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">Log In</button>
+    </form>
+  </div>
+
+  <footer class="site-footer">
+    © 2025 All Rights Reserved | Phishing Simulation Platform
+  </footer>
+
+</body>
+</html>

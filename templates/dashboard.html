@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Phishing Campaign Dashboard</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style_dash.css') }}">
+</head>
+<body class="dashboard">
+  <h1>Phishing Simulation Logs</h1>
+
+  <div class="dashboard-wrapper">
+    <!-- Logs -->
+    <div class="log-container">
+      {% for entry in events %}
+        {% if 'SUBMIT' in entry %}
+          <div class="log-card submit-entry">
+            <div class="log-entry"><span class="log-label">Time:</span> {{ entry.split(' - ')[0] }}</div>
+            <div class="log-entry"><span class="log-label">Type:</span> Credentials Submitted</div>
+            <div class="log-entry"><span class="log-label">Details:</span> {{ entry.split(' - ')[1].replace('SUBMIT: ', '') }}</div>
+          </div>
+        {% else %}
+          <div class="log-card visit-entry">
+            <div class="log-entry"><span class="log-label">Time:</span> {{ entry.split(' - ')[0] }}</div>
+            <div class="log-entry"><span class="log-label">Type:</span> Page Visited</div>
+            <div class="log-entry"><span class="log-label">Details:</span> {{ entry.split(' - ')[1].replace('VISIT: ', '') }}</div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- Charts -->
+    <div class="analytics">
+      <div class="chart-card"><canvas id="doughnut"></canvas></div>
+      <div class="chart-card"><canvas id="barChart"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Buttons -->
+  <div class="button-row">
+    <form action="/delete-logs" method="POST" onsubmit="return confirmDelete();" style="margin:0;">
+      <button type="submit" class="btn-delete ">🗑️ Delete Logs</button>
+    </form>
+    <a href="/"       class="btn-shared btn-home">← Back to Home</a>
+    <a href="/logout" class="btn-shared btn-home">Logout</a>
+  </div>
+
+  <!-- Charts JS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    function confirmDelete(){ return confirm('Delete ALL logs?\nThis action cannot be undone.'); }
+
+    const labels  = JSON.parse('{{ chart_labels  | tojson | safe }}');
+    const visits  = JSON.parse('{{ chart_visits  | tojson | safe }}');
+    const submits = JSON.parse('{{ chart_submits | tojson | safe }}');
+    const totalV  = Number('{{ total_visits  }}');
+    const totalS  = Number('{{ total_submits }}');
+
+    new Chart(document.getElementById('doughnut'),{
+      type:'doughnut',
+      data:{ labels:['Visits','Credentials'], datasets:[{data:[totalV,totalS],backgroundColor:['#74b9ff','#ff7675']}]},
+      options:{ cutout:'60%', plugins:{ legend:{position:'bottom',labels:{color:'#fff'}}}}
+    });
+
+    new Chart(document.getElementById('barChart'),{
+      type:'bar',
+      data:{ labels:labels, datasets:[{label:'Visits',data:visits,backgroundColor:'#74b9ff'},{label:'Submits',data:submits,backgroundColor:'#ff7675'}]},
+      options:{
+        scales:{ x:{ticks:{color:'#fff'},grid:{color:'rgba(255,255,255,.1)'}}, y:{beginAtZero:true,ticks:{color:'#fff'},grid:{color:'rgba(255,255,255,.1)'}}},
+        plugins:{ legend:{position:'bottom',labels:{color:'#fff'}}}
+      }
+    });
+  </script>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    © 2025 All Rights Reserved | Phishing Simulation Platform
+  </footer>
+</body>
+</html>

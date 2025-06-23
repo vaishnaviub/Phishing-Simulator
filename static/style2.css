@@ -1,0 +1,145 @@
+
+     /* ───---------------------------------------- Index.html page  -----------------------------------------------------─── */
+    body{
+      font-family:'Segoe UI',sans-serif;
+      background: url('/static/images/phish_bg.jpg') center/cover fixed no-repeat;
+      background-blend-mode:multiply;
+      background-color:rgba(0,0,0,0.35);
+      color:#f4f6f9;
+      margin:0;
+      padding:100px 20px 20px;   /* top‑padding (100px) keeps content below navbar */
+    }
+
+  /* Fixed Top Navbar */
+    .site-nav{
+      position:fixed;
+      top:0; left:0; width:100%;
+      /* glass */
+      background:rgba(255,255,255,0.12);
+      border-bottom:1px solid rgba(255,255,255,0.25);
+      backdrop-filter:blur(12px);          /* ⬅️ nice frost */
+      -webkit-backdrop-filter:blur(12px);
+      /* layout */
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:22px 40px;                   /* ⬅️ slightly taller bar */
+      box-sizing:border-box;
+      flex-wrap:wrap;
+      z-index:1000;
+    }
+
+    /* Branding */
+    .brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+      flex: 1;
+      white-space: nowrap;
+    }
+
+    /* Navigation links */
+    .nav-links a{
+      display:inline-block;
+      margin:0 12px;          /* a bit tighter */
+      padding:6px 14px;       /* smaller height & width */
+      font-size:1rem;         /* down from 1.4rem  */
+      font-weight:600;        /* still nice & bold */
+      color:#fff;
+      text-decoration:none;
+      border-radius:8px;
+      background:rgba(255,255,255,0.15);
+      border:1px solid rgba(255,255,255,0.35);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      box-shadow:0 3px 10px rgba(0,0,0,0.25);
+      transition:background .25s, box-shadow .25s, transform .15s;
+    }
+
+    .nav-links a:hover{
+      background:rgba(255,255,255,0.25);
+      box-shadow:0 5px 12px rgba(0,0,0,0.35);
+      transform:translateY(-2px);
+    }
+
+    .nav-links a:active{
+      transform:translateY(0);
+      box-shadow:0 3px 8px rgba(0,0,0,0.25);
+    }
+    .nav-links a:hover{opacity:.75}
+
+    /* Responsive fallback */
+    @media (max-width: 768px) {
+      .site-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+
+    /* ─── Form & buttons (unchanged) ─── */
+    form{
+      max-width:400px;margin:auto;padding:20px;
+      background:rgba(255,255,255,0.15);
+      border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.2);
+      backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.3);color:#fff;
+    }
+    input,button{
+      width:100%;padding:10px;margin:10px 0;border-radius:8px;
+      border:1px solid #ccc;box-sizing:border-box;
+    }
+        button.index {
+      padding: 10px 18px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 10px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover.index {
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+      transform: translateY(-2px);
+    }
+
+    button:active.index {
+      transform: translateY(0);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    }
+
+    h1{text-align:center;}
+
+    /* ─── Footer ─── */
+    .site-footer{
+    position:fixed;
+    bottom:0; left:0; width:100%;
+    background:rgba(255,255,255,0.12);
+    border-top:1px solid rgba(255,255,255,0.25);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    padding:14px 0;                      /* matches thicker nav feel */
+    text-align:center;
+    font-size:14px;
+    color:#ddd;
+    z-index:999;
+    }
+
+    a[href="/dashboard"]:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+    }

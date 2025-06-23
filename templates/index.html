@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Phishing Simulator</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style2.css') }}">
+</head>
+<body class="index">
+<div class="index-container">
+  <!-- Navbar -->
+    <nav class="site-nav">
+      <div class="brand">🛡️ Phishing Simulator</div>
+
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/admin-login">Admin&nbsp;Login</a>
+      </div>
+    </nav>
+
+  <h1 class="index">Phishing Email Sender</h1>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div id="toast" style="
+            display:none;position:fixed;top:80px;right:20px;
+            background:#28a745;color:#fff;padding:15px 20px;border-radius:8px;
+            box-shadow:0 2px 8px rgba(0,0,0,.2);font-size:16px;z-index:1000;
+            opacity:0;transition:opacity .5s ease;">
+        {{ messages[0] }}
+      </div>
+      <script>
+        const toast=document.getElementById('toast');
+        toast.style.display='block';
+        setTimeout(()=>toast.style.opacity='1',50);
+        setTimeout(()=>toast.style.opacity='0',3050);
+        setTimeout(()=>toast.remove(),3600);
+      </script>
+    {% endif %}
+  {% endwith %}
+
+  <form action="/send-email" method="POST">
+    <label>Email to send to:</label><br>
+    <input type="email" name="email" required>
+    <button type="submit">Send Phishing Email</button>
+  </form>
+
+  <a href="/dashboard" style="
+  display: block;
+  width: 400px;                     /* ↔ matches your card width */
+  margin: 15px auto 0;              /* centers it */
+  padding: 15px 20px;               /* same vertical rhythm as card */
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+
+  /* liquid‑glass look */
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.25);
+
+  /* smooth hover / active */
+  transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+"
+onmouseover="this.style.background='rgba(255,255,255,0.25)'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 18px rgba(0,0,0,0.35)';"
+onmouseout="this.style.background='rgba(255,255,255,0.15)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 15px rgba(0,0,0,0.25)';">
+  Return to Dashboard
+</a>
+
+</div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    © 2025 All Rights Reserved | Phishing Simulation Platform
+  </footer>
+
+</body>
+</html>

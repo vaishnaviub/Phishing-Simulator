@@ -1,0 +1,341 @@
+/* ───---------------------------------------- fake-login.html -----------------------------------------------------─── */
+
+/* ─────────────────────────────────────────────
+   Microsoft‑style sign‑in page
+   ───────────────────────────────────────────── */
+
+/* --- BASIC RESET --- */
+body.fakelogin {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: url('/static/images/ms_bg.png') center/cover fixed no-repeat;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- CARD --- */
+.ms-card {
+  width: 440px;
+  max-width: 92%;
+  margin: 40px auto auto;
+  padding: 48px 48px 56px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 9px 18px rgba(0, 0, 0, 0.12);
+
+  /* centre the brand row (logo + “Microsoft”) */
+  text-align: center;
+}
+
+/* --- LOGO & BRAND WORD --- */
+.ms-logo {
+  width: 30px;
+  height: auto;
+  display: inline-block;     /* keep the image inline with pseudo‑text   */
+  margin-bottom: 24px;       /* space under the brand row                */
+  vertical-align: middle;
+}
+.ms-branding {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.ms-logo {
+  width: 28px;
+  height: 28px;
+}
+
+.ms-text {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #7e7b7b;
+  font-family: "Segoe UI", Arial, sans-serif;
+   margin-bottom: 25px;
+}
+
+/* --- HEADER “Sign in” --- */
+.ms-header {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 5px 0 20px;
+  color: #1b1a19;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- FORM FIELDS --- */
+.ms-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  margin-bottom: 8px;       /* tighter gap to the options row           */
+  border: 1px solid #8a8886;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+.ms-input:focus {
+  outline: 2px solid #0067b8;
+  border-color: #0067b8;
+}
+
+/* --- OPTIONS ROW (Forgot left • Keep‑signed‑in right) --- */
+.options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* changed from flex-start */
+  margin-bottom: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  flex-wrap: wrap;
+}
+
+/* reorder: link first, checkbox second */
+.options .link  { order: 1; }
+.options label  { order: 2; }
+
+.options label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.options label,
+.options .link { 
+  color: #0067b8; 
+  white-space: nowrap; 
+}
+
+/* --- BUTTON --- */
+.ms-btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 0%;
+  background: #0067b8;
+  color: #ffffff;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.ms-btn:hover  { background: #005a9e; }
+.ms-btn:active { background: #004578; }
+
+/* --- ALT ACTIONS --- */
+.alt-actions {
+  margin-top: 24px;
+  text-align: left;
+  font-weight: 600;
+}
+
+/* --- GENERAL LINKS --- */
+.link {
+  color: #0067b8;
+  text-decoration: none;
+}
+.link:hover { text-decoration: underline; }
+
+/* --- FOOTER --- */
+.ms-footer {
+  margin-top: 40px;
+  text-align: center;
+  padding: 20px 0 15px;
+  font-size: 0.8125rem;
+  color: #4d4c4a;
+}
+.ms-footer .link { color: #605e5c; }
+.ms-footer span   { padding: 0 6px; }
+
+.ms-footer-note {
+  text-align: center;
+  font-size: 0.65rem;
+  color: #4c4a48;
+  margin-top: 0px;
+  padding-bottom: 40px;
+}
+
+.ms-footer-note .link {
+  color: #0067b8;
+  text-decoration: none;
+  font-weight: 600;
+}
+.ms-footer-note .link:hover {
+  text-decoration: underline;
+}
+
+/* --- UTILITY --- */
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  width: 1px; height: 1px;
+  overflow: hidden;
+}
+
+  /* ───---------------------------------------- awareness.html -----------------------------------------------------─── */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('/static/images/awareness_bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+
+    .awareness-card {
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      max-width: 700px;
+      width: 90%;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    h1 {
+      color: #fa0606;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    p strong {
+      color: #ffc107;
+    }
+
+    .site-footer{
+      position:fixed;
+      bottom:0; left:0; width:100%;
+      background:rgba(255,255,255,0.12);
+      border-top:1px solid rgba(255,255,255,0.25);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      padding:14px 0;                      /* matches thicker nav feel */
+      text-align:center;
+      font-size:14px;
+      color:#ddd;
+      z-index:999;
+    }
+
+ /* ───---------------------------------------- admin_login.html -----------------------------------------------------─── */
+
+ body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url('/static/images/phish_bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.35);
+  background-blend-mode: multiply;
+  color: #f4f6f9;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px 0;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(255,255,255,0.12);
+  border-bottom: 1px solid rgba(255,255,255,0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+}
+
+/* prevent header overlap */
+body::before {
+  content: "";
+  display: block;
+  height: 70px;
+}
+
+.login-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 14px;
+  padding: 32px;
+  width: 420px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  text-align: center;
+  color: white;
+}
+input {
+  width: 100%;
+  padding: 14px;
+  margin: 16px 0;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #000;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 4px rgba(33, 150, 243, 0.7);
+  background: white;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2196F3;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #1976D2;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 14px 0;
+  text-align: center;
+  background: rgba(255,255,255,0.12);
+  border-top: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #ddd;
+  font-size: 14px;
+  z-index: 999;
+}
