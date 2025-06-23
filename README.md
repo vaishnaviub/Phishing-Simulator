@@ -47,6 +47,6 @@ A realistic phishing simulation tool built with Flask and MySQL, designed to tes
 ### 🔌 Installation
 
 ```bash
-git clone https://github.com/yourusername/phishing-sim-platform.git
-cd phishing-sim-platform
+git clone https://github.com/vaishnaviub/Phishing-Simulator.git
+cd Phishing-Simulator
 pip install -r requirements.txt
