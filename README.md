@@ -16,7 +16,11 @@ A realistic phishing simulation tool built with Flask and MySQL, designed to tes
 
 ## 📸 Screenshots
 
-
+![Image](https://github.com/user-attachments/assets/e14f5906-7dcb-4b1c-b3b9-6b283985369e)
+![Image](https://github.com/user-attachments/assets/fb61ff97-06c9-4c30-bfa1-c35c6c806e0b)
+![Image](https://github.com/user-attachments/assets/fcc20601-5a4a-45ae-91ed-25c02d53ed8b)
+![Image](https://github.com/user-attachments/assets/57ff2f11-da17-46fc-bc51-d8a8a325aab4)
+![Image](https://github.com/user-attachments/assets/6b126964-1186-450b-b467-166658d113b1)
 
 ---
 
@@ -30,3 +34,21 @@ A realistic phishing simulation tool built with Flask and MySQL, designed to tes
 - **Bootstrap / Custom CSS** — UI styling
 
 ---
+
+
+---
+
+## ⚙️ Setup Instructions
+
+### 🔧 Prerequisites
+
+- Python 3.9+
+- MySQL installed
+- SMTP email (e.g., Gmail App Passwords)
+
+### 🔌 Installation
+
+```bash
+git clone https://github.com/yourusername/phishing-sim-platform.git
+cd phishing-sim-platform
+pip install -r requirements.txt
